@@ -1,11 +1,10 @@
 __pycache__
-
+data
 venv
-
+Anomaly*Detection/
 instructions.txt
 
 *.zip
 
 *.png
 
-"Anomaly Detection"
