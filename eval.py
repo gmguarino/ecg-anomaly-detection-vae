@@ -3,10 +3,11 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset
 import matplotlib.pyplot as plt
+
 from model import LSTMAutoencoder
 from ecg_dataset import FakeECG, ECG5000
 
-
+plt.style.use('seaborn')
 
 
 def get_device():
@@ -97,14 +98,15 @@ if __name__=="__main__":
         batch = batch.cpu().numpy().flatten()
 
         # Plotto i riusultati a confronto
-        plt.figure()
+        plt.figure(figsize=(5,4))
         plt.plot(pred, label='Predicted')
         plt.plot(batch, label='Ground Truth')
         plt.xlabel("Sample Number")
         plt.ylabel("Signal (arb. units)")
         gt = "Anomaly" if test else "Normal"
-        plt.title(gt + " | Predicted: " + check_for_anomaly(loss.item(), threshold) + f" with score {loss.item():.2f} / {threshold:.2f}")
-        plt.savefig("images/fig_{0}_{1}.png".format(t_idx+1, gt))
+        plt.title("GT: "+gt+" | Predicted: " + check_for_anomaly(loss.item(), threshold) + f" with score {loss.item():.2f} / {threshold:.2f}")
         plt.legend()
+        plt.tight_layout()
+        plt.savefig("images/fig_{0}_{1}.png".format(t_idx+1, gt))
 
     plt.show()
