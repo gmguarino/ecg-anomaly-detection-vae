@@ -104,20 +104,7 @@ if __name__=="__main__":
         plt.ylabel("Signal (arb. units)")
         gt = "Anomaly" if test else "Normal"
         plt.title(gt + " | Predicted: " + check_for_anomaly(loss.item(), threshold) + f" with score {loss.item():.2f} / {threshold:.2f}")
+        plt.savefig("images/fig_{0}_{1}.png".format(t_idx+1, gt))
         plt.legend()
-
-    # # Ripeto per segnale con aritmia
-    # batch, pred, loss = evaluate_model(test=True, device=device)
-
-    # pred = pred.cpu().numpy().flatten()
-    # batch = batch.cpu().numpy().flatten()
-
-    # plt.figure(2)
-    # plt.plot(pred, label='Predicted')
-    # plt.plot(batch, label='Ground Truth')
-    # plt.xlabel("Sample Number")
-    # plt.ylabel("Signal (arb. units)")
-    # plt.title("Anomaly | Predicted: " + check_for_anomaly(loss.item(), threshold) + f" with score {loss.item():.2f} / {threshold:.2f}")
-    # plt.legend()
 
     plt.show()
