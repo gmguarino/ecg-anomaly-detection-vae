@@ -39,3 +39,9 @@ The model is trained using the `train.py` script (genius), and can be scored aga
 
 ## Examples of ECG classification
 
+Here are 4 examples generated using the `eval.py` script:
+
+<img src="images/fig_1_Normal.png" alt="Normal 1" width="400"/>
+<img src="images/fig_2_Anomaly.png" alt="Anomaly 1" width="400"/>
+<img src="images/fig_3_Normal.png" alt="Normal 2" width="400"/>
+<img src="images/fig_4_Anomaly.png" alt="Anomaly 3" width="400"/>
