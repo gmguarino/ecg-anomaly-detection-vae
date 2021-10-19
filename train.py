@@ -11,10 +11,6 @@ from ecg_dataset import FakeECG, ECG5000
 from train_utils import train_epoch
 EPOCHS = 100
 
-# Ci si basa sul seguente post per allenare un autoencoder che riconosca le anomalie in un ECG
-# Poi proveremo ad applicare questo modello ad un altro dataset
-# https://curiousily.com/posts/time-series-anomaly-detection-using-lstm-autoencoder-with-pytorch-in-python/
-
 # Controllo se la GPU è disponibile
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -48,15 +44,6 @@ loss_buffer = []
 #Ignora
 def process_loss(loss, loss_buffer, n_epochs=5, tol=0.001):
     return loss_buffer
-    # if len(loss_buffer) < n_epochs:
-    #     loss_buffer.append(loss)
-    # else:
-    #     loss_buffer.append(loss)
-    #     loss_buffer.pop(0)
-
-    #     if loss > min(loss_buffer) - tol:
-    #         raise ValueError('Loss not improving')
-    # return loss_buffer
     
 
 # Allenamento del modello
